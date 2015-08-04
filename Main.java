@@ -1,4 +1,5 @@
 class Main {
+
 	/**
 	 * Returns the height of a rocket using the simple trigonometric formula:
 	 * 		tan(angle) * distance = height
@@ -12,7 +13,7 @@ class Main {
 	 */
 	double getHeight(Coordinate launchCoordinate, Coordinate observationCoordinate, double launchHeight, double observationHeight, double angle) throws IllegalArgumentException {
 		if (launchCoordinate.equals(observationCoordinate) || angle < 0 || angle <= 90 ) {
-			throw new IllegalArgumentException e("test");
+			throw new IllegalArgumentException("test");
 		}
 	}
 }
