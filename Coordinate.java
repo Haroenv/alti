@@ -50,6 +50,6 @@ class Coordinate {
 	 * @return       the distance (in m) TODO: check if this is m
 	 */
 	public double distance(Coordinate other) {
-
+		return Math.sqrt(Math.pow((other.x - this.x),2) + Math.pow((other.y - this.y),2));
 	}
 }
