@@ -22,12 +22,14 @@ class Height {
 			distance = DISTANCE;
 			height = HEIGHT;
 		}
+		System.out.println("angle (°) | height at "+distance+"m (m) | distance for "+height+"m (m)");
+		System.out.println("--- | --- | ---");
 		for (double i = MINANG; i <= MAXANG; i += 5) {
 			alphaDeg = i;
 			alphaRad = alphaDeg*Math.PI/180;
 			h = Math.tan(alphaRad)*distance; // tan(alpha) * d = h
 			d = height/Math.tan(alphaRad);
-			System.out.println("angle: "+alphaDeg+"°\t | height at "+distance+"m: "+round(h)+"m\t | distance for "+height+"m: "+round(d)+"m");
+			System.out.println(alphaDeg+"\t|"+round(h)+"\t|"+round(d));
 		}
 	}
 
