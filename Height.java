@@ -2,9 +2,9 @@ class Height {
 	static double h, height, d, distance;
 	static double DISTANCE = 50;		//50m is the distance away from launch
 	static double HEIGHT = 10;			//10m is the minimum height
-	static double alphaDeg, alphaRad;	//the angle to analyze (will go from 0-90°)
-	static final double MINANG = 0;		//minimum angle in deg
-	static final double MAXANG = 90;	//max angle in deg
+	static double alphaDeg, alphaRad;	//the angle to analyze (will go from 5-85°)
+	static final double MINANG = 5;		//minimum angle in deg
+	static final double MAXANG = 85;	//max angle in deg
 	public static void main(String[] args) {
 		/**
 		 * If there are two arguments given, then use those as
@@ -13,7 +13,7 @@ class Height {
 		 * 	<li>the height you want to know the distance at a certain angle</li>
 		 * </ul>
 		 * Defaults to 50 and 10.
-		 * Displays all degrees from 0-90 with 5 degree steps
+		 * Displays all degrees from 5-85 with 5 degree steps
 		 */
 		if (args.length == 2) {
 			distance = Double.parseDouble(args[0]);
@@ -22,12 +22,16 @@ class Height {
 			distance = DISTANCE;
 			height = HEIGHT;
 		}
-		for (double i = MINANG; i < MAXANG; i += 5) {
+		for (double i = MINANG; i <= MAXANG; i += 5) {
 			alphaDeg = i;
 			alphaRad = alphaDeg*Math.PI/180;
 			h = Math.tan(alphaRad)*distance; // tan(alpha) * d = h
 			d = height/Math.tan(alphaRad);
-			System.out.println("angle: "+alphaDeg+"°\t | height at "+distance+"m: "+Math.round(100*h)/100+"m\t | distance for "+height+"m: "+Math.round(100*d)/100+"m");
+			System.out.println("angle: "+alphaDeg+"°\t | height at "+distance+"m: "+round(h)+"m\t | distance for "+height+"m: "+round(d)+"m");
 		}
+	}
+
+	public static double round(double toRound) {
+		return Math.round(100*toRound)/100;
 	}
 }
