@@ -19,5 +19,5 @@ function init() {
 
 function deviceOrientationHandler(alpha) {
   document.getElementById("angle").innerHTML = Math.round(alpha);
-  h.innerHTML = Math.round(Math.tan(Math.radians(alpha)) * d.value * 10) / 10;
+  h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(alpha))) * d.value * 10) / 10;
 }
