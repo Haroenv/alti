@@ -2,43 +2,36 @@
 <!--
 	Height measuring using accelerometer
 	@author Haroen Viaene <hello@haroen.me>
- -->
+-->
 <html lang="en">
+
 <head>
-	<title> Alti </title>
-	<meta charset="utf-8" />
-	<!-- saying that the browser doesn't need to rescale on mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="mobile-web-app-capable" content="yes" />
-	<!-- status bar in transparent/colour -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="theme-color" content="#7f1734">
-	<!-- linking your CSS -->
-	<link rel="stylesheet" href="http://haroen.me/style.min.css" />
-	<!-- favicon is best linked in your html too -->
-	<link rel="icon" type="image/png" href="/favicon.png" />
-
+    <title> Alti </title>
+    <meta charset="utf-8" />
+    <!-- saying that the browser doesn't need to rescale on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- status bar in transparent/colour -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#7f1734">
+    <!-- linking your CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- favicon is best linked in your html too -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 </head>
-<body>
-<input type="number" id="distance" class="m" value="20">
-<p id="height" class="m">20</p>
-<a href="what.html">What is this?</a>
-<footer>
-	<p>By <a href="http://haroen.me">Haroen Viaene</a></p>
-	<p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
-</footer>
-<script>
-	var alpha = 10;
-	var h = document.getElementById('height');
-	var d = document.getElementById('distance');
-	h.innerHTML = Math.tan(10)*d;
-</script>
 
-<style>
-	.m::after{
-		content: 'm';
-	}
-</style>
+<body>
+    <input type="number" id="distance" class="m" value="20">
+    <p id="height" class="m">20</p>
+    <p id="fail">Not supported on your device or browser. Sorry.</p>
+    <p id="angle"></p>
+    <footer>
+        <a href="what.html">What is this?</a>
+        <p>By <a href="http://haroen.me">Haroen Viaene</a></p>
+        <p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
+    </footer>
+    <script src="alti.js"></script>
 </body>
+
 </html>

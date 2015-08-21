@@ -4,23 +4,39 @@
 	@author Haroen Viaene <hello@haroen.me>
  -->
 <html lang="en">
-<head>
-	<title> Alti </title>
-	<meta charset="utf-8" />
-	<!-- saying that the browser doesn't need to rescale on mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="mobile-web-app-capable" content="yes" />
-	<!-- status bar in transparent/colour -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="theme-color" content="#7f1734">
-	<!-- linking your CSS -->
-	<link rel="stylesheet" href="http://haroen.me/style.min.css" />
-	<!-- favicon is best linked in your html too -->
-	<link rel="icon" type="image/png" href="/favicon.png" />
 
+<head>
+    <title> Alti </title>
+    <meta charset="utf-8" />
+    <!-- saying that the browser doesn't need to rescale on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- status bar in transparent/colour -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#7f1734">
+    <!-- linking your CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- favicon is best linked in your html too -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 </head>
+
 <body>
-<h1>Altimeter</h1>
+    <h1>Altimeter</h1>
+    <p>
+    	This uses your device's gyroscope to find the angle &alpha;, and then uses simple trigonometrics to find the height, using:
+    </p>
+    <p>
+    	tan(&alpha;) * d = h
+    </p>
+    <figure>
+    	<img src="../s/test.png" alt"rectangular triangle with orthogonal sides h and d">
+    	<figcaption>The scheme</figcaption>
+    </figure>
+    <footer>
+        <p>By <a href="http://haroen.me">Haroen Viaene</a></p>
+        <p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
+    </footer>
 </body>
+
 </html>
