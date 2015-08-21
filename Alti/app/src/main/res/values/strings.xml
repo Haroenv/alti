@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Alti</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_main">Altimeter</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-</resources>
