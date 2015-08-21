@@ -2,6 +2,10 @@ var h = document.getElementById('height');
 var d = document.getElementById('distance');
 init();
 
+Math.radians = function(degrees) {
+  return degrees * Math.PI / 180;
+};
+
 function init() {
   if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {
@@ -15,5 +19,5 @@ function init() {
 
 function deviceOrientationHandler(alpha) {
   document.getElementById("angle").innerHTML = Math.round(alpha);
-  h.innerHTML = Math.round(Math.tan(alpha) * d.value * 10) / 10;
+  h.innerHTML = Math.round(Math.tan(Math.radians(alpha)) * d.value * 10) / 10;
 }
