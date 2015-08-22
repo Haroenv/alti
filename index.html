@@ -4,7 +4,6 @@
 	@author Haroen Viaene <hello@haroen.me>
 -->
 <html lang="en">
-
 <head>
     <title> Alti </title>
     <meta charset="utf-8" />
@@ -13,7 +12,6 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#7f1734">
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/apple-touch-icon.png">
@@ -21,7 +19,6 @@
     <meta name="description" content="A manual altimeter for use with for example model rockets." />
     <meta property="og:image" content="http://haroen.me/apple-touch-icon.png">
 </head>
-
 <body>
 	<label for="distance">distance from launch point (m)</label> <br>
     <input type="number" id="distance" class="m" value="20">
@@ -33,7 +30,43 @@
         <p>By <a href="http://haroen.me">Haroen Viaene</a></p>
         <p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
     </footer>
-    <script src="alti.js"></script>
-</body>
+    <script src="alti.js">
+var h = document.getElementById('height');
+var d = document.getElementById('distance');
+init();
 
+Math.radians = function(degrees) {
+  return degrees * Math.PI / 180;
+};
+
+function init() {
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', function(eventData) {
+      var alpha = eventData.beta;
+      print(alpha);
+    }, false);
+  } else {
+    document.getElementById("fail").style.display = "inline";
+  }
+}
+
+function print(alpha) {
+  document.getElementById("angle").innerHTML = Math.round(alpha);
+  h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(alpha))) * d.value * 10) / 10;
+}
+    </script>
+    <style>
+html {
+    background-color: #7f1734;
+    font-family: sans-serif;
+    text-align: center;
+    color: #FFF;
+    font-size: 2em; }
+label { font-size: 0.5em; }
+a { color: #FFF; }
+.m::after{ content: 'm'; }
+#angle::after { content: '°'; }
+#fail { display: none; }
+    </style>
+</body>
 </html>
