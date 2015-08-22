@@ -5,68 +5,79 @@
 -->
 <html lang="en">
 <head>
-    <title> Alti </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#7f1734">
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" href="/apple-touch-icon.png">
-    <meta name="author" content="Haroen Viaene" />
-    <meta name="description" content="A manual altimeter for use with for example model rockets." />
-    <meta property="og:image" content="http://haroen.me/apple-touch-icon.png">
+	<title> Alti </title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="theme-color" content="#7f1734">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="icon" href="/apple-touch-icon.png">
+	<meta name="author" content="Haroen Viaene" />
+	<meta name="description" content="A manual altimeter for use with for example model rockets." />
+	<meta property="og:image" content="http://haroen.me/apple-touch-icon.png">
 </head>
 <body>
 	<label for="distance">distance from launch point (m)</label> <br>
-    <input type="number" id="distance" class="m" value="20">
-    <p id="height" class="m">20</p>
-    <p id="fail">Not supported.</p>
-    <p id="angle"></p>
-    <footer>
-        <a href="what.html">What is this?</a>
-        <p>By <a href="http://haroen.me">Haroen Viaene</a></p>
-        <p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
-    </footer>
-    <script src="alti.js">
-var h = document.getElementById('height');
-var d = document.getElementById('distance');
-init();
+	<input type="number" id="distance" class="m" value="20">
+	<p id="height" class="m">20</p>
+	<p id="fail">Not supported.</p>
+	<p id="angle"></p>
+	<details>
+		<summary>What is this?</summary>
+		<p>
+			This uses your device's gyroscope to find the angle &alpha;, and then uses simple trigonometrics to find the height, using:
+		</p>
+		<p>
+			tan(&alpha;) * d = h
+		</p>
+		<figure>
+			<svg xmlns="http://www.w3.org/2000/svg" width="238" height="139" viewBox="0 0 238 139" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(3.000000, 4.000000)"><path d="M225.7 132C225.7 132 191 111.4 181.5 106.1 176.1 113.4 173 122.2 173 132 183.7 132 225.7 132 225.7 132Z" stroke="#FFFFFF" stroke-width="5"/><polygon stroke="#FFFFFF" stroke-width="5" points="0 0.6 225.6 132 0 132 "/><text font-family="Helvetica" font-size="12" font-weight="normal" fill="#FFFFFF"><tspan x="5" y="69">h</tspan></text><text font-family="Helvetica" font-size="12" font-weight="normal" fill="#FFFFFF"><tspan x="80" y="127">d</tspan></text><text font-family="Helvetica" font-size="12" font-weight="normal" fill="#FFFFFF"><tspan x="158" y="119">α</tspan></text></g></g></svg>
+		</figure>
+	</details>
+	<footer>
+		<p>By <a href="http://haroen.me">Haroen Viaene</a></p>
+		<p>Code on <a href="https://github.com/haroenv/Alti/tree/gh-pages">GitHub</a></p>
+	</footer>
+	<script src="alti.js">
+		var h = document.getElementById('height');
+		var d = document.getElementById('distance');
+		init();
 
-Math.radians = function(degrees) {
-  return degrees * Math.PI / 180;
-};
+		Math.radians = function(degrees) {
+			return degrees * Math.PI / 180;
+		};
 
-function init() {
-  if (window.DeviceOrientationEvent) {
-    window.addEventListener('deviceorientation', function(eventData) {
-      var alpha = eventData.beta;
-      print(alpha);
-    }, false);
-  } else {
-    document.getElementById("fail").style.display = "inline";
-  }
-}
+		function init() {
+			if (window.DeviceOrientationEvent) {
+			window.addEventListener('deviceorientation', function(eventData) {
+				var alpha = eventData.beta;
+				print(alpha);
+			}, false);
+		} else {
+			document.getElementById("fail").style.display = "inline";
+		}
+	}
 
-function print(alpha) {
-  document.getElementById("angle").innerHTML = Math.round(alpha);
-  h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(alpha))) * d.value * 10) / 10;
-}
-    </script>
-    <style>
-html {
-    background-color: #7f1734;
-    font-family: sans-serif;
-    text-align: center;
-    color: #FFF;
-    font-size: 2em; }
-label { font-size: 0.5em; }
-a { color: #FFF; }
-.m::after{ content: 'm'; }
-#angle::after { content: '°'; }
-#fail { display: none; }
-    </style>
+	function print(alpha) {
+		document.getElementById("angle").innerHTML = Math.round(alpha);
+		h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(alpha))) * d.value * 10) / 10;
+	}
+</script>
+<style>
+	html {
+		background-color: #7f1734;
+		font-family: sans-serif;
+		text-align: center;
+		color: #FFF;
+		font-size: 2em; }
+		label { font-size: 0.5em; }
+		a { color: #FFF; }
+		.m::after{ content: 'm'; }
+		#angle::after { content: '°'; }
+		#fail { display: none; }
+	</style>
 </body>
 </html>
