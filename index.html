@@ -23,9 +23,11 @@
 <body>
   <label for="distance">distance from launch point (m)</label> <br>
   <input type="number" id="distance" class="m" value="20">
-  <p id="height" class="m">20</p>
+  <p id="height" class="m"></p>
   <p id="fail">Not supported.</p>
   <p id="angle"></p>
+  <a id="save" onclick="document.getElementById('saved').innerHTML = document.getElementById('height').innerHTML;">save</a>
+  <p id="saved" class="m"></p>
   <details>
     <summary>What is this?</summary>
     <p>
@@ -75,7 +77,7 @@
     color: #FFF;
     font-size: 2em; }
     label { font-size: 0.5em; }
-    a { color: #FFF; }
+    a { color: #FFF; text-decoration: underline; }
     .m::after{ content: 'm'; }
     #angle::after { content: '°'; }
     #fail { display: none; }
