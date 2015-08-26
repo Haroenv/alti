@@ -33,3 +33,10 @@ angle (°) | height at 50.0m (m) | distance for 10.0m (m)
 85.0	|571.0	|0.0
 
 The column is the angle, second the height at that angle at 50m distance, the third is the distance you need for that angle to be 10m
+
+
+## License
+
+[![Creative Commons Licence](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+
+Alti is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). No warranty whatsoever.
