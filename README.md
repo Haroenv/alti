@@ -34,6 +34,9 @@ angle (°) | height at 50.0m (m) | distance for 10.0m (m)
 
 The column is the angle, second the height at that angle at 50m distance, the third is the distance you need for that angle to be 10m
 
+A way to make the output more readable is to save the output in a markdown file and processing or previewing it.
+
+```java Height > output.md```
 
 ## License
 
