@@ -24,7 +24,6 @@
   <label for="distance">distance from launch point (m)</label> <br>
   <input type="number" id="distance" class="m" value="20">
   <p id="height" class="m"></p>
-  <p id="fail">Not supported.</p>
   <p id="angle"></p>
   <a id="save" onclick="document.getElementById('saved').innerHTML = document.getElementById('height').innerHTML;">save</a>
   <p id="saved" class="m"></p>
@@ -48,25 +47,19 @@
     var h = document.getElementById('height');
     var d = document.getElementById('distance');
     init();
-
     Math.radians = function(degrees) {
       return degrees * Math.PI / 180;
     };
-
     function init() {
       if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', function(eventData) {
-        var alpha = eventData.beta;
-        print(alpha);
-      }, false);
-      } else {
-        document.getElementById("fail").style.display = "inline";
+        window.addEventListener('deviceorientation', function(eventData) {
+          print(eventData.beta);
+        }, false);
       }
     }
-
-    function print(alpha) {
-      document.getElementById("angle").innerHTML = Math.round(alpha);
-      h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(alpha))) * d.value * 10) / 10;
+    function print(angle) {
+      document.getElementById("angle").innerHTML = Math.round(angle);
+      h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(angle))) * d.value * 10) / 10;
     }
 </script>
 <style>
@@ -80,7 +73,6 @@
     a { color: #FFF; text-decoration: underline; }
     .m::after{ content: 'm'; }
     #angle::after { content: '°'; }
-    #fail { display: none; }
   </style>
 </body>
 </html>
