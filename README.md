@@ -6,7 +6,7 @@ A manual altimeter for use with i.e. water bottle or micro rockets. It asks the 
 
 Is the basic formula used for guessing the height the rocket went.
 
-[Live version](http://haroen.me/alti)
+[Live version](https://haroen.me/alti)
 
 ## other included
 
