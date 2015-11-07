@@ -25,7 +25,7 @@
   <input type="number" id="distance" class="m" value="20">
   <p id="height" class="m"></p>
   <p id="angle"></p>
-  <a id="save" onclick="document.getElementById('saved').innerHTML = document.getElementById('height').innerHTML;">save</a>
+  <a id="save" onclick="save()">save</a>
   <p id="saved" class="m"></p>
   <details>
     <summary>What is this?</summary>
@@ -62,6 +62,10 @@
       document.getElementById("angle").innerHTML = Math.round(angle);
       h.innerHTML = Math.round(Math.tan(Math.radians(Math.round(angle))) * d.value * 10) / 10;
     }
+    function save() {
+      document.getElementById('saved').innerHTML = h.innerHTML;
+    }
+    document.getElementById('save').addEventListener('click',save());
 </script>
 <style>
   html {
