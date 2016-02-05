@@ -1,0 +1,27 @@
+html {
+  background-color: #7f1734;
+  font-family: sans-serif;
+  text-align: center;
+  color: #FFF;
+  font-size: 2em;
+}
+
+label {
+  font-size: 0.5em;
+}
+
+a {
+  color: #FFF;
+}
+
+.m::after {
+  content: 'm';
+}
+
+#angle::after {
+  content: '°';
+}
+
+#fail {
+  display: none;
+}
