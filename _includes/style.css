@@ -42,12 +42,12 @@ input, button {
 button {
   transition: background-color .2s;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 button:active, button:focus {
   color: #7f1734;
   background-color: #FFF;
   border-color: #FFF;
-  -webkit-user-select: none;
-  user-select: none;
 }
