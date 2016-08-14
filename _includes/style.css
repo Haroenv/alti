@@ -6,6 +6,10 @@ html {
   font-size: 2em;
 }
 
+body {
+  margin: 0;
+}
+
 label {
   font-size: 0.5em;
 }
@@ -24,4 +28,13 @@ a {
 
 #fail {
   display: none;
+}
+
+input, button {
+  font-size: inherit;
+  color: inherit;
+  background: inherit;
+  border: 2px solid #FFF;
+  padding: .2em;
+  border-radius: .2em;
 }
