@@ -44,7 +44,7 @@ button {
   cursor: pointer;
 }
 
-button:active {
+button:active, button:focus {
   color: #7f1734;
   background-color: #FFF;
   border-color: #FFF;

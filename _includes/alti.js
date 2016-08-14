@@ -26,4 +26,6 @@ function save() {
   document.getElementById('saved').innerHTML = h.innerHTML;
 }
 
-document.getElementById('save').addEventListener('click',save());
+document.getElementById('save').addEventListener('click',function(){
+  save();
+});
