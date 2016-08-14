@@ -28,7 +28,7 @@ layout: compress
 <body>
   <label for="distance">distance from launch point (m)</label>
   <br>
-  <input type="number" id="distance" class="m" value="20">
+  <input type="number" pattern="\d*" id="distance" class="m" value="20">
   <p id="height" class="m"></p>
   <p id="angle"></p>
   <button id="save" onclick="save()">save</button>
